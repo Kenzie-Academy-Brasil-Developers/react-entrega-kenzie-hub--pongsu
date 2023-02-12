@@ -9,8 +9,9 @@ const App = () => {
       <AppRoutes />
       <GlobalStyle />
       <ToastContainer
+        toastStyle={{ backgroundColor: "#343B41" }}
         position="top-right"
-        autoClose={3000}
+        autoClose={3700}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}
