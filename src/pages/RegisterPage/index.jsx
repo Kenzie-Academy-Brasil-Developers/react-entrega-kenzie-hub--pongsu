@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import { api } from "../../services/api";
 import { Page } from "./style";
 import RegisterForm from "../../components/RegisterForm";
+import Logo from "../../components/Logo";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -32,8 +33,8 @@ const RegisterPage = () => {
   return (
     <div className="container">
       <Page>
-        <header>          
-          <img className="logo" src="https://i.imgur.com/zAz5zGV.png" alt="Kenzie Hub Logo" />
+        <header>    
+          <Logo/>      
           <Button
             className="headerBttn"
             onClick={onClickFunction}

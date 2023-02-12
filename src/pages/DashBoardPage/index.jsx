@@ -6,6 +6,7 @@ import { Page } from "./style";
 import Button from "../../components/Button";
 import SectionSpacer from "../../components/SectionSpacer";
 import { api } from "../../services/api";
+import Logo from "../../components/Logo";
 
 const DashBoardPage = ({ user, setUser }) => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const DashBoardPage = ({ user, setUser }) => {
   return (
     <Page>
       <nav>
-        <img className="logo" src="https://i.imgur.com/zAz5zGV.png" alt="Kenzie Hub Logo" />
+        <Logo/>
         <Button className="headerBttn" onClick={logout} innerText="Sair" />
       </nav>
       <SectionSpacer />

@@ -10,6 +10,7 @@ import Button from "../../components/Button";
 import InputDiv from "../../components/InputDiv";
 import { api } from "../../services/api";
 import { Page } from "./style";
+import Logo from "../../components/Logo";
 
 const LoginPage = ({ setUser }) => {
   const navigate = useNavigate();
@@ -51,8 +52,8 @@ const LoginPage = ({ setUser }) => {
   return (
     <div className="container">
       <Page>
-        <header>          
-          <img className="logo" src="https://i.imgur.com/zAz5zGV.png" alt="Kenzie Hub Logo" />
+        <header> 
+          <Logo/>         
         </header>
         <main className="formSection">
           <h2>Login</h2>
