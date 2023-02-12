@@ -1,9 +1,10 @@
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import React from "react";
+
 import { StyledForm } from "./style";
 import InputDiv from "../../components/InputDiv";
 import { schema } from "./validation.js";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import Button from "../Button";
 
 const RegisterForm = ( { className, onSubmit } ) => {

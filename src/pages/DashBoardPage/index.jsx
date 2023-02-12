@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 import { Page } from "./style";

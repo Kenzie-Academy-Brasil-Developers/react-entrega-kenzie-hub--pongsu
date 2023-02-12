@@ -1,21 +1,24 @@
-import { Toaster } from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
 import AppRoutes from "./routes";
 import GlobalStyle from "./styles/globalStyle";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <>
       <AppRoutes />
       <GlobalStyle />
-      <Toaster 
+      <ToastContainer
         position="top-right"
-        toastOptions={{
-          className: '',
-          style: {
-            padding: '15px',
-            background: 'var(--grey2)',
-            color: 'var(--grey0)',
-          },}}
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
       />
     </>
   );
