@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledInputDiv } from "./style";
 
-const InputDiv = ({type, placeHolder, register, name, labelText, errorMsg}) => {
+const InputDiv = ( { type, placeHolder, register, name, labelText, errorMsg } ) => {
     return (
         <StyledInputDiv>
             <label>{labelText}</label>

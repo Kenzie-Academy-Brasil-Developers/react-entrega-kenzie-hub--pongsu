@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Button from "../Button";
 
-const RegisterForm = ({ className, onSubmit }) => {
+const RegisterForm = ( { className, onSubmit } ) => {
   const {
     register,
     handleSubmit,
