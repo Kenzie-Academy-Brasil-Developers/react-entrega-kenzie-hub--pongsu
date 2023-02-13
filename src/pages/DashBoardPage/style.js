@@ -39,6 +39,7 @@ export const Page = styled.div`
         line-height: 22px;
         color: var(--grey1);
     }
+    
     .provisorySection{
         display: flex;
         align-items: flex-start;
@@ -49,6 +50,7 @@ export const Page = styled.div`
         padding: 20px 7vw;
         max-width: 1020px;
     }
+
     h3{
         font-size: 18px;
         font-weight: 400; 
@@ -61,6 +63,7 @@ export const Page = styled.div`
             align-items: center;
         }
     }
+
     @media (min-width: 1600px) {
         .provisorySection, nav, header{
             max-width: 1300px;

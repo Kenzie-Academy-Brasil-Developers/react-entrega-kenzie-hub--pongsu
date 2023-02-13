@@ -22,8 +22,7 @@ const DashBoardPage = ({ user, setUser }) => {
         setUserName(response.data.name);
         setUserModule(response.data.course_module);
         console.log(response.data);
-      } catch (error) {
-        console.error(error);       
+      } catch (error) {    
         window.localStorage.clear();
         setUser([]);
         navigate("/login");
@@ -55,9 +54,7 @@ const DashBoardPage = ({ user, setUser }) => {
       <SectionSpacer />
       <main className="provisorySection">
         <h2>Que pena! Estamos em desenvolvimento :(</h2>
-        <h3>
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades
-        </h3>
+        <h3>Nossa aplicação está em desenvolvimento, em breve teremos novidades</h3>
       </main>
     </Page>
   );

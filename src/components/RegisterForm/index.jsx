@@ -6,7 +6,6 @@ import { StyledForm } from "./style";
 import InputDiv from "../../components/InputDiv";
 import { schema } from "./validation.js";
 import Button from "../Button";
-import { toast } from "react-toastify";
 
 const RegisterForm = ( { className, onSubmit } ) => {
   const {

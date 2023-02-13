@@ -16,13 +16,9 @@ const RegisterPage = () => {
       toast.success("Cadastro efetuado! Faça o Login");
       navigate("/login");
     } catch (error) {
-      error.response.data.message == "Email already exists"
-        ? toast.error("Este email já esta cadastrado")
-        : toast.error(
-            "Algo deu errado, se o problema persistir entre em contato com o responsável pela página"
-          );
-
-      console.error(error.response.data.message);
+      error.response.data.message == "Email already exists"?
+        toast.error("Este email já esta cadastrado"):
+        toast.error("Algo deu errado, se o problema persistir entre em contato com o responsável pela página");
     }
   };
 
@@ -35,11 +31,7 @@ const RegisterPage = () => {
       <Page>
         <header>    
           <Logo/>      
-          <Button
-            className="headerBttn"
-            onClick={onClickFunction}
-            innerText="Voltar"
-          />
+          <Button className="headerBttn" onClick={onClickFunction} innerText="Voltar" />
         </header>
         <main className="formSection">
           <h2>Crie sua conta</h2>

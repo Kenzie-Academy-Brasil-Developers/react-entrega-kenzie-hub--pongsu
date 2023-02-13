@@ -63,16 +63,10 @@ export const StyledButton = styled.button`
   &.primaryBttn:hover {
     background-color: var(--primaryFocus);
   }
+
   &.primaryBttn[disabled]:hover {
     background-color: var(--primaryNegative);
     border: 1.2px solid var(--primaryNegative);
-  }
-
-  &.loginBttn{
-
-  }
-  &.registerBttn{
-
   }
 
   &.loading{

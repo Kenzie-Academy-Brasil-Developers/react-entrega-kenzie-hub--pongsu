@@ -63,7 +63,5 @@ export const StyledInputDiv = styled.div`
       width: 100%;
       font-size: 11px;
       color: var(--warning);
-    }
-
-    
+    }    
 `
