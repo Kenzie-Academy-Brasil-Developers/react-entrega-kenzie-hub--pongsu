@@ -28,10 +28,30 @@ export const StyledInputDiv = styled.div`
       gap: 10.15px;
       height: 48px;
       background: var(--grey2);
-      border: 1.2182px solid var(--grey0);
+      border: 1.2182px solid var(--grey2);
       border-radius: 4px;
       color: var(--grey0);
       width: 100%;
+    }
+
+    input:focus{
+      border: 1.2182px solid var(--grey0);
+
+      ::placeholder {
+        color: var(--grey0);
+        filter: brightness(0.8);
+        opacity: 1;
+      }
+
+      :-ms-input-placeholder {
+        color: var(--grey0);
+        filter: brightness(0.8);
+      }
+
+      ::-ms-input-placeholder {
+        color: var(--grey0);
+        filter: brightness(0.8);
+      }
     }
 
     p{
@@ -44,4 +64,6 @@ export const StyledInputDiv = styled.div`
       font-size: 11px;
       color: var(--warning);
     }
+
+    
 `

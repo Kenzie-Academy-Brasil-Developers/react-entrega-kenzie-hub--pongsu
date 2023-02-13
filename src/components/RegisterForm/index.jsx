@@ -6,13 +6,14 @@ import { StyledForm } from "./style";
 import InputDiv from "../../components/InputDiv";
 import { schema } from "./validation.js";
 import Button from "../Button";
+import { toast } from "react-toastify";
 
 const RegisterForm = ( { className, onSubmit } ) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+    formState: { errors, isDirty, isValid },
+  } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
 
   return (
     <StyledForm className={className} onSubmit={handleSubmit(onSubmit)}>
@@ -71,7 +72,7 @@ const RegisterForm = ( { className, onSubmit } ) => {
           <option value="Quarto módulo (Introdução ao Backend)">Quarto módulo</option>
         </select>
       </div>
-      <Button innerText="Cadastrar" className="primaryBttn registerBttn" />
+      <Button disabled={!isDirty || !isValid} innerText="Cadastrar" className="primaryBttn registerBttn" />
     </StyledForm>
   );
 };

@@ -12,7 +12,7 @@ export const Page = styled.div`
         align-items: center;
         width: 100%;
         padding: 20px 7vw;
-        max-width: 900px;
+        max-width: 1020px;
     }
 
     header{
@@ -23,7 +23,7 @@ export const Page = styled.div`
         width: 100%;
         gap: 15px;
         padding: 20px 7vw;
-        max-width: 900px;
+        max-width: 1020px;
     }
 
     h2{
@@ -47,7 +47,7 @@ export const Page = styled.div`
         width: 100%;
         gap: 15px;
         padding: 20px 7vw;
-        max-width: 900px;
+        max-width: 1020px;
     }
     h3{
         font-size: 18px;
@@ -59,6 +59,11 @@ export const Page = styled.div`
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+        }
+    }
+    @media (min-width: 1600px) {
+        .provisorySection, nav, header{
+            max-width: 1300px;
         }
     }
 `;

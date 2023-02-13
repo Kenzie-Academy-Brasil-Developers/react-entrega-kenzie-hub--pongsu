@@ -24,9 +24,13 @@ export const StyledForm = styled.form`
     gap: 10.15px;
     height: 48px;
     background: var(--grey2);
-    border: 1.2182px solid var(--grey0);
+    border: 1.2182px solid var(--grey2);
     border-radius: 4px;
     color: var(--grey0);
     width: 100%;
+  }
+
+  select:focus{
+      border: 1.2182px solid var(--grey0);
   }
 `;

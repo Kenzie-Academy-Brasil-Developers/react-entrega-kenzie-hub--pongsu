@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
@@ -48,20 +49,29 @@ export const StyledButton = styled.button`
     font-weight: 500;
     font-size: 15px;
     letter-spacing: 0.35px;
+    background: var(--primary);
+    border: 1.2px solid var(--primary);
   }
+  
+  &.primaryBttn[disabled]{
+    background-color: var(--primaryNegative);
+    border: 1.2px solid var(--primaryNegative);
+    cursor: default;
+  }
+  
 
   &.primaryBttn:hover {
     background-color: var(--primaryFocus);
   }
+  &.primaryBttn[disabled]:hover {
+    background-color: var(--primaryNegative);
+    border: 1.2px solid var(--primaryNegative);
+  }
 
   &.loginBttn{
-    background: var(--primary);
-    border: 1.2px solid var(--primary);
 
   }
   &.registerBttn{
-    background: var(--primaryNegative);
-    border: 1.2px solid var(--primaryNegative);
 
   }
 

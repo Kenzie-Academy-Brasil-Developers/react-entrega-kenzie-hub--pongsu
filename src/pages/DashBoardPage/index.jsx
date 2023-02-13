@@ -23,14 +23,12 @@ const DashBoardPage = ({ user, setUser }) => {
         setUserModule(response.data.course_module);
         console.log(response.data);
       } catch (error) {
-        console.error(error);
+        console.error(error);       
         window.localStorage.clear();
         setUser([]);
         navigate("/login");
-        toast.error(
-          "Não encontramos uma sessão ativa, por favor faça o login para acessar"
-        );
-      }
+        toast.error("Não encontramos uma sessão ativa, por favor faça o login para acessar");
+      }        
     };
 
     loadUser();
