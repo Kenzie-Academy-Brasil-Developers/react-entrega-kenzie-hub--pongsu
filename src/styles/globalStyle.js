@@ -1,6 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+  /* #addTechModal{  
+    content: {background-color: #3FE864};
+        display: flex;
+        max-width: 400px;
+        max-height: 600px;
+        
+        top: 50%;     
+        left: 50%; */
+    }
+  
   :root {
   --primary: #FF577F;
   --primaryFocus: #FF427F;
@@ -10,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
   --grey2: #343B41;
   --grey3: #212529;
   --grey4: #121214;
+  --greyTransparent: #868e9683;
   --warning: #E83F5B;
   --sucess: #3FE864;
   }
