@@ -1,21 +1,31 @@
 import React, { useContext } from 'react'
 import { MdAdd } from "react-icons/md";
 
-import { UserContext } from '../../contexts/userContext'
 import { StyledTechSection } from './style'
 import Button from "../Button";
-import TechCreateModal from '../TechCreateModal';
+import { TechContext } from '../../contexts/TechContext';
+import { UserContext } from '../../contexts/userContext';
+import TechsModal from '../TechsModal';
 
 const TechSection = () => {
-  const { user, loading } = useContext(UserContext)
+  const { openAddModal, openEditModal } = useContext(TechContext);
+  const { user } = useContext(UserContext)
 
   return (
     <StyledTechSection>
       <div>
         <h2>Tecnologias</h2>
-        <Button className="darkBttn addBttn" innerText={ <MdAdd /> }/>
+        <Button onClick={openAddModal} className="darkBttn addBttn" innerText={ <MdAdd /> }/>
       </div>
-      <TechCreateModal/>
+      <ul>
+        {user && user.techs.map((tech) => 
+          <li onClick={openEditModal} id={tech.id}>
+            <h2>{tech.title}</h2>
+            <h4>{tech.status}</h4>
+          </li>
+        )}
+      </ul>
+      <TechsModal/>
     </StyledTechSection>
   )
 }

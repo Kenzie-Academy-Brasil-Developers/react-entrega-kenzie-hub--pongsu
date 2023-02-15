@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
-export const StyledTechCreateModal = styled.span`
-    #addTechModal{
-    }
-    .selectAux{
-        display: none;
-    }
+export const StyledTechsModal = styled.span`
+    
 `;
 
 export const modalStyle = {

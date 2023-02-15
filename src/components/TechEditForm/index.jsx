@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "react-select";
 
 import Button from "../Button";
-import { StyledTechCreateForm, selectStyle } from "./style";
+import { StyledTechEditForm, selectStyle } from "./style";
 import { TechContext } from "../../contexts/TechContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
@@ -15,7 +15,7 @@ const options = [
   { value: "Avançado", label: "Avançado" },
 ];
 
-const TechCreateForm = () => {
+const TechEditForm = () => {
   const { addTechFunction, loading, closeModal } = useContext(TechContext);
 
   const schema = yup.object().shape({
@@ -38,9 +38,9 @@ const TechCreateForm = () => {
   };
 
   return (
-    <StyledTechCreateForm>
+    <StyledTechEditForm>
       <div>
-        <h3>Cadastrar Tecnologia</h3>
+        <h3>EDITAR Tecnologia</h3>
         <button onClick={closeModal}>X</button>
       </div>
       <form onSubmit={handleSubmit(addTechFunction)}>
@@ -66,8 +66,8 @@ const TechCreateForm = () => {
         }
         
       </form>
-    </StyledTechCreateForm>
+    </StyledTechEditForm>
   );
 };
 
-export default TechCreateForm;
+export default TechEditForm;

@@ -15,17 +15,23 @@ const UserProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
+  useEffect(()=>console.log("track", user),[user]) 
+
   const userLogin = async (data) => {
     setLoading(true);
+    setUser(null)
     try {
       const response = await api.post("/sessions", data);
       window.localStorage.clear();
       window.localStorage.setItem("authToken", response.data.token);
       window.localStorage.setItem("userId", response.data.user.id);
       setUser(response.data.user);
+      console.log("F1", response.data.user);
+      console.log("FF", user);
       toast.success("Login bem sucedido!");
       navigate("/dashboard");
       setLoading(false);
+      console.log(loading);
     } catch (error) {
       console.error(error);
       toast.error("Email e/ou senha incorreto(s)");
@@ -37,7 +43,6 @@ const UserProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await api.post("/users", data);
-      console.log(response);
       toast.success("Cadastro efetuado! Faça o Login");
       navigate("/login");
       setLoading(false);
@@ -61,6 +66,10 @@ const UserProvider = ({ children }) => {
             },
           });
           setUser(response.data);
+          setNewUser(response.data)
+          console.log("F2", newUser);
+          console.log("F1", response.data);
+          console.log(user);
           navigate("/dashboard");
         } catch (error) {
           window.localStorage.clear();
@@ -83,6 +92,8 @@ const UserProvider = ({ children }) => {
         setUser(response.data);
         setUserName(response.data.name);
         setUserModule(response.data.course_module);
+        console.log("F3", user);
+        console.log("F4", userName);
       } catch (error) {
         window.localStorage.clear();
         setUser([]);
@@ -106,6 +117,7 @@ const UserProvider = ({ children }) => {
         userLogin,
         userRegister,
         loading,
+        setLoading,
         userName,
         userModule,
       }}
@@ -115,4 +127,5 @@ const UserProvider = ({ children }) => {
   );
 };
 
-export default UserProvider;
+export  {UserProvider};
+// export default UserProvider;
