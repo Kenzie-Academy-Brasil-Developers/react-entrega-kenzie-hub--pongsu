@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-import { api } from "../services/api";
-import { UserContext } from "./userContext";
+import { api } from "../../services/api";
+import { UserContext } from "../userContext";
 
 export const TechContext = createContext({});
 
-const TechProvider = ({ children }) => {
+export const TechProvider = ({ children }) => {
   const { user, setUser, setLoading, setLoadingDel } = useContext(UserContext);
 
   const [modalOpened, setModalOpened] = useState(false);
@@ -75,7 +75,6 @@ const TechProvider = ({ children }) => {
           }
         );
         toast.success("Tecnologia atualizada com sucesso");
-        console.log(response);
         const removeOldToUpdateUser = user.techs.filter(
           (tech) => tech.id != selectedTech.id
         );
@@ -145,4 +144,3 @@ const TechProvider = ({ children }) => {
   );
 };
 
-export { TechProvider };

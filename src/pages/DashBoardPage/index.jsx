@@ -4,8 +4,8 @@ import { Page } from "./style";
 import Button from "../../components/Button";
 import SectionSpacer from "../../components/SectionSpacer";
 import Logo from "../../components/Logo";
-import { UserContext } from "../../contexts/userContext";
 import TechSection from "../../components/TechsSection";
+import { UserContext } from "../../contexts/userContext";
 
 const DashBoardPage = ({}) => {
   const { logout, userName, userModule } = useContext(UserContext);

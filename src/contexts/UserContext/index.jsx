@@ -2,11 +2,11 @@ import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { api } from "../services/api";
+import { api } from "../../services/api";
 
 export const UserContext = createContext({});
 
-const UserProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingDel, setLoadingDel] = useState(false);
@@ -128,5 +128,3 @@ const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
-
-export { UserProvider };
