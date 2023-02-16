@@ -29,7 +29,7 @@ const TechSection = () => {
             <h4>{tech.status}</h4>
           </li>
         )}
-        {techList.length == 0  && 
+        {techList && techList.length == 0  && 
         <li className='empytTechList' onClick={openAddModal}>
           <h2>Sua lista está vazia :(</h2>
           <h4>Clique aqui para adicionar</h4>
