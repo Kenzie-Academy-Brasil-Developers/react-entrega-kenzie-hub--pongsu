@@ -23,7 +23,7 @@ const TechSection = () => {
         <Button id="addTechBttn" onClick={openAddModal} className="darkBttn addBttn" innerText={ <MdAdd /> }/>
       </div>
       <ul >
-        {techList.map((tech) => 
+        {techList && techList.map((tech) => 
           <li key={tech.id} onClick={handleClick([tech.id, tech.title, tech.status])}>
             <h2>{tech.title}</h2>
             <h4>{tech.status}</h4>
