@@ -6,7 +6,7 @@ import { StyledForm } from "./style";
 import InputDiv from "../../components/InputDiv";
 import { schema } from "./validation.js";
 import Button from "../Button";
-import { UserContext } from "../../contexts/userContext";
+import { UserContext } from "../../contexts/UserContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const RegisterForm = ({ className }) => {

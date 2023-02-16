@@ -1,6 +1,6 @@
 import React from "react";
 import { TechProvider } from "../TechContext";
-import { UserProvider } from "../userContext";
+import { UserProvider } from "../UserContext";
 
 const Providers = ({ children }) => {
   return (

@@ -9,7 +9,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Button from "../Button";
 import { StyledTechEditForm, selectStyle } from "./style";
 import { TechContext } from "../../contexts/TechContext";
-import { UserContext } from "../../contexts/userContext";
+import { UserContext } from "../../contexts/UserContext";
 
 const options = [
   { value: "Iniciante", label: "Iniciante" },

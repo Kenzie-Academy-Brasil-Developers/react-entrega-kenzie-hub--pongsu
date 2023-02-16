@@ -7,7 +7,7 @@ import { StyledForm } from "./style";
 import InputDiv from "../../components/InputDiv";
 import { schema } from "./validation.js";
 import Button from "../Button";
-import { UserContext } from "../../contexts/userContext";
+import { UserContext } from "../../contexts/UserContext";
 
 const LoginForm = ({ className }) => {
   const { userLogin, loading } = useContext(UserContext);

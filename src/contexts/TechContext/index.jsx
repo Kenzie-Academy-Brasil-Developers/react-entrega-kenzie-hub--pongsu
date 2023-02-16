@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import { api } from "../../services/api";
-import { UserContext } from "../userContext";
+import { UserContext } from "../UserContext";
 
 export const TechContext = createContext({});
 
