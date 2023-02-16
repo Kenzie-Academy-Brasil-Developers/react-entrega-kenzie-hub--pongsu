@@ -1,31 +1,19 @@
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 import { Page } from "./style";
 import Button from "../../components/Button";
 import SectionSpacer from "../../components/SectionSpacer";
-import { api } from "../../services/api";
 import Logo from "../../components/Logo";
 import { UserContext } from "../../contexts/userContext";
 import TechSection from "../../components/TechsSection";
 
-const DashBoardPage = ({  }) => {
-  const { setUser, userName, userModule } = useContext(UserContext)
-
-  const navigate = useNavigate();
-
-  const logout = () => {
-    window.localStorage.clear();
-    setUser([]);
-    toast.success("Sessão encerrada. Aguardamos seu retorno!");
-    navigate("/login");
-  };
+const DashBoardPage = ({}) => {
+  const { logout, userName, userModule } = useContext(UserContext);
 
   return (
     <Page>
       <nav>
-        <Logo/>
+        <Logo />
         <Button className="darkBttn" onClick={logout} innerText="Sair" />
       </nav>
       <SectionSpacer />
@@ -34,7 +22,7 @@ const DashBoardPage = ({  }) => {
         <h4>{userModule}</h4>
       </header>
       <SectionSpacer />
-      <TechSection/>
+      <TechSection />
     </Page>
   );
 };

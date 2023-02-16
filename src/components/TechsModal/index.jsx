@@ -18,8 +18,8 @@ const TechsModal = () => {
         onRequestClose={closeModal}
         style={modalStyle}
       >
-        { addingTech && <TechCreateForm/> }        
-        { editingTech && <TechEditForm/> }        
+        {addingTech && <TechCreateForm />}
+        {editingTech && <TechEditForm />}
       </Modal>
     </StyledTechsModal>
   );

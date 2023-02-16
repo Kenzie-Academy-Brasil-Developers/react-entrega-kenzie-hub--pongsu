@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
 import { api } from "../services/api";
 
 export const UserContext = createContext({});
@@ -8,6 +9,7 @@ export const UserContext = createContext({});
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [loadingDel, setLoadingDel] = useState(false);
   const [userName, setUserName] = useState(null);
   const [userModule, setUserModule] = useState(null);
 
@@ -15,26 +17,23 @@ const UserProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  useEffect(()=>console.log("track", user),[user]) 
-
   const userLogin = async (data) => {
     setLoading(true);
-    setUser(null)
+    setUser(null);
     try {
       const response = await api.post("/sessions", data);
       window.localStorage.clear();
       window.localStorage.setItem("authToken", response.data.token);
       window.localStorage.setItem("userId", response.data.user.id);
       setUser(response.data.user);
-      console.log("F1", response.data.user);
-      console.log("FF", user);
       toast.success("Login bem sucedido!");
       navigate("/dashboard");
       setLoading(false);
-      console.log(loading);
+
     } catch (error) {
-      console.error(error);
-      toast.error("Email e/ou senha incorreto(s)");
+      (error.response.data.message == "Incorrect email / password combination")
+        ? toast.error("Email e/ou senha incorreto(s)")
+        : toast.error("Algo deu errado, se o problema persistir entre em contato com o responsável pela página")
       setLoading(false);
     }
   };
@@ -48,7 +47,7 @@ const UserProvider = ({ children }) => {
       setLoading(false);
     } catch (error) {
       console.log(error);
-      error.response.data.message == "Email already exists"
+      (error.response.data.message == "Email already exists")
         ? toast.error("Este email já esta cadastrado")
         : toast.error("Algo deu errado, se o problema persistir entre em contato com o responsável pela página");
       setLoading(false);
@@ -66,10 +65,6 @@ const UserProvider = ({ children }) => {
             },
           });
           setUser(response.data);
-          setNewUser(response.data)
-          console.log("F2", newUser);
-          console.log("F1", response.data);
-          console.log(user);
           navigate("/dashboard");
         } catch (error) {
           window.localStorage.clear();
@@ -80,10 +75,16 @@ const UserProvider = ({ children }) => {
           }
         }
       };
-
       userAutoLogin();
     }
   }, []);
+
+  const logout = () => {
+    window.localStorage.clear();
+    setUser([]);
+    toast.success("Sessão encerrada.");
+    navigate("/login");
+  };
 
   useEffect(() => {
     const loadUser = async () => {
@@ -92,8 +93,6 @@ const UserProvider = ({ children }) => {
         setUser(response.data);
         setUserName(response.data.name);
         setUserModule(response.data.course_module);
-        console.log("F3", user);
-        console.log("F4", userName);
       } catch (error) {
         window.localStorage.clear();
         setUser([]);
@@ -120,6 +119,9 @@ const UserProvider = ({ children }) => {
         setLoading,
         userName,
         userModule,
+        loadingDel,
+        setLoadingDel,
+        logout,
       }}
     >
       {children}
@@ -127,5 +129,4 @@ const UserProvider = ({ children }) => {
   );
 };
 
-export  {UserProvider};
-// export default UserProvider;
+export { UserProvider };

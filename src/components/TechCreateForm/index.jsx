@@ -3,11 +3,12 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "react-select";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 import Button from "../Button";
 import { StyledTechCreateForm, selectStyle } from "./style";
 import { TechContext } from "../../contexts/TechContext";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { UserContext } from "../../contexts/userContext";
 
 const options = [
   { value: "Iniciante", label: "Iniciante" },
@@ -16,12 +17,13 @@ const options = [
 ];
 
 const TechCreateForm = () => {
-  const { addTechFunction, loading, closeModal } = useContext(TechContext);
+  const { addTechFunction, closeModal } = useContext(TechContext);
+  const { loading } = useContext(UserContext);
 
   const schema = yup.object().shape({
     title: yup.string().required("Campo obrigatório"),
-    status: yup.string().required("Campo obrigatório")
-  });  
+    status: yup.string().required("Campo obrigatório"),
+  });
 
   const {
     register,
@@ -30,18 +32,17 @@ const TechCreateForm = () => {
     setValue,
     clearErrors,
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
-  
 
   const handleChange = (selectedOption) => {
-    setValue('status', selectedOption.value)
-    clearErrors('status')
+    setValue("status", selectedOption.value);
+    clearErrors("status");
   };
 
   return (
     <StyledTechCreateForm>
-      <div>
+      <div className="modalHeader">
         <h3>Cadastrar Tecnologia</h3>
-        <button onClick={closeModal}>X</button>
+        <button className="closeModalBttn" onClick={closeModal}>x</button>
       </div>
       <form onSubmit={handleSubmit(addTechFunction)}>
         <label>Nome</label>
@@ -52,19 +53,18 @@ const TechCreateForm = () => {
         <p>{errors.title?.message}</p>
         <label htmlFor="">Selecionar status</label>
         <Select
-            styles={selectStyle}
-            placeholder="Selecione..."
-            defaultValue="null"
-            onChange={handleChange}
-            options={options}
-            isSearchable={false}
-          />     
+          styles={selectStyle}
+          placeholder="Selecione..."
+          defaultValue="null"
+          onChange={handleChange}
+          options={options}
+          isSearchable={false}
+        />
         <p>{errors.status?.message}</p>
         {!loading 
         ? ( <Button className="primaryBttn" innerText="Cadastrar Tecnologia" /> ) 
         : ( <Button className="primaryBttn loading" innerText={ <AiOutlineLoading3Quarters className="loading" /> } /> )
-        }
-        
+        }        
       </form>
     </StyledTechCreateForm>
   );

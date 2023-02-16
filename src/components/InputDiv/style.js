@@ -7,8 +7,7 @@ export const StyledInputDiv = styled.div`
     align-items: flex-start;
     padding: 0px 0px;
     width: 100%;
-
-
+    
     label{
       justify-self: flex-start;
       color: var(--grey0);

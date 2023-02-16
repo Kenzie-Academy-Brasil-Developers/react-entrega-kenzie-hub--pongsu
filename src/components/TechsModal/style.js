@@ -18,14 +18,16 @@ export const modalStyle = {
         right: "0px",
         bottom: "0px",
         backgroundColor: "var(--grey3)",
+        borderColor: 'none',
         border: "none",
         width: "369px",
         maxWidth: "90%",
-        height: "342px",
-        
+        height: "357px",
+        padding: "0",
+        borderRadius: "3.2px",
     },
-    selectAux: {
-        display: "none",
+    control: {
+        borderColor: 'none',
     },
 }
 
@@ -47,15 +49,22 @@ export const selectStyle = {
         color: state.isSelected ? 'var(--grey3)' : 'var(--grey0)',
         backgroundColor: state.isSelected ? 'var(--grey1)' : 'var(--grey2)',
     }),
-    menu: (baseStyles, state) => ({
-        ...baseStyles,
+    menu: {
         backgroundColor: 'var(--grey2)',
-    }),
+        border: 'var(--grey0) 0.5px solid',
+    },
     control: (baseStyles, state) => ({
         ...baseStyles,
         height: '48px',
         backgroundColor: 'var(--grey2)',
         border: 'var(--grey0) 1.5px solid',
         outline: 'var(--grey0) 1.5px solid',
+        borderColor: 'none',
+        border: state.isSelected ? 'none' : 'none',
+        outline: state.isFocused ? 'none' : 'none',
+    }),
+    menuList: (baseStyles, state) => ({
+        ...baseStyles,
+        backgroundColor: state.isFocused ? 'var(--grey1)' : 'var(--grey3)',
     }),
 }

@@ -12,12 +12,9 @@ export const schema = yup
       .matches(/.{8,}/, "Deve conter no mínimo 8 caracteres"),
     passwordConfirm: yup
       .string()
-      .oneOf(
-        [yup.ref("password")],
-        "Confirmação de senha deve ser igual a senha"
-      ).required('A confirmação da senha é obrigatória'),
+      .oneOf([yup.ref("password")], "Confirmação de senha deve ser igual a senha")
+      .required('A confirmação da senha é obrigatória'),
     bio: yup.string().required("A descrição é obrigatória"),
     contact: yup.string().required("É preciso informar seu contato"),
     course_module: yup.string().required("Modulo atual obrigatório"),
-  })
-  .required();
+  });

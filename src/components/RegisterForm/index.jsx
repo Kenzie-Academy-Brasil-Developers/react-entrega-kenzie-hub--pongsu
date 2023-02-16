@@ -9,8 +9,8 @@ import Button from "../Button";
 import { UserContext } from "../../contexts/userContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-const RegisterForm = ( { className } ) => {
-  const { userRegister, loading } = useContext(UserContext)
+const RegisterForm = ({ className }) => {
+  const { userRegister, loading } = useContext(UserContext);
 
   const {
     register,

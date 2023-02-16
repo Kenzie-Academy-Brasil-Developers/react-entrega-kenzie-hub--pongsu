@@ -1,15 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  /* #addTechModal{  
-    content: {background-color: #3FE864};
-        display: flex;
-        max-width: 400px;
-        max-height: 600px;
-        
-        top: 50%;     
-        left: 50%; */
-    }
+  .ReactModal__Body--open,
+  .ReactModal__Html--open {
+    overflow: hidden;
+  }
   
   :root {
   --primary: #FF577F;

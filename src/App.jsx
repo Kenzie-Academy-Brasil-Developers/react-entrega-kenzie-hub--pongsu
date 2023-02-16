@@ -12,7 +12,7 @@ const App = () => {
       <AppRoutes />
       <GlobalStyle />
       <ToastContainer
-        toastStyle={{ backgroundColor: "#343B41" }}
+        toastStyle={{ backgroundColor: "var(--grey2)" }}
         position="top-right"
         autoClose={3700}
         hideProgressBar={false}

@@ -9,8 +9,8 @@ import { schema } from "./validation.js";
 import Button from "../Button";
 import { UserContext } from "../../contexts/userContext";
 
-const LoginForm = ( { className } ) => {
-  const { userLogin, loading } = useContext(UserContext)
+const LoginForm = ({ className }) => {
+  const { userLogin, loading } = useContext(UserContext);
 
   const {
     register,
@@ -38,7 +38,7 @@ const LoginForm = ( { className } ) => {
       />
       {!loading 
         ? ( <Button className="primaryBttn loginBttn" innerText="Entrar" /> ) 
-        : ( <Button className="primaryBttn loading" innerText={ <AiOutlineLoading3Quarters className="loading" /> } /> )
+        : ( <Button className="primaryBttn loading" innerText={ <AiOutlineLoading3Quarters className="loading" />} /> )
       }
     </StyledForm>
   );

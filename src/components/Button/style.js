@@ -6,6 +6,7 @@ export const StyledButton = styled.button`
   padding: 10px 20px;
   font-size: 14px;
   line-height: 17px;
+  font-family: 'Inter',sans-serif;
 
   &.darkBttn {
   color: var(--grey0);
@@ -13,7 +14,6 @@ export const StyledButton = styled.button`
   height: 40px; 
   padding: 0px 13.25px;
   background: var(--grey3);
-  min-width: 40px;
   font-weight: 600;
   letter-spacing: 0.2px;
   }
@@ -57,7 +57,6 @@ export const StyledButton = styled.button`
     border: 1.2px solid var(--primaryNegative);
     cursor: default;
   }
-  
 
   &.primaryBttn:hover {
     background-color: var(--primaryFocus);
@@ -67,7 +66,6 @@ export const StyledButton = styled.button`
     background-color: var(--primaryNegative);
     border: 1.2px solid var(--primaryNegative);
   }
-
   
   &.addBttn{
     display: flex;
