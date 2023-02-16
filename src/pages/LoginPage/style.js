@@ -23,7 +23,7 @@ export const Page = styled.div`
 
     h5{
         font-weight: 600;
-        font-size: 10.6px;
+        font-size: 11.6px;
         line-height: 14px;
         color: var(--grey1);
         letter-spacing: 0.1px;

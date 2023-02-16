@@ -1,50 +1,20 @@
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 
 import { Page } from "./style";
 import Button from "../../components/Button";
 import SectionSpacer from "../../components/SectionSpacer";
-import { api } from "../../services/api";
 import Logo from "../../components/Logo";
+import { UserContext } from "../../contexts/userContext";
+import TechSection from "../../components/TechsSection";
 
-const DashBoardPage = ({ user, setUser }) => {
-  const navigate = useNavigate();
-  const userId = window.localStorage.getItem("userId");
-  const [userName, setUserName] = useState(user.name);
-  const [userModule, setUserModule] = useState(user.course_module);
-
-  useEffect(() => {
-    const loadUser = async () => {
-      try {
-        const response = await api.get(`/users/${userId}`);
-        setUser(response.data);
-        setUserName(response.data.name);
-        setUserModule(response.data.course_module);
-        console.log(response.data);
-      } catch (error) {    
-        window.localStorage.clear();
-        setUser([]);
-        navigate("/login");
-        toast.error("Não encontramos uma sessão ativa, por favor faça o login para acessar");
-      }        
-    };
-
-    loadUser();
-  }, [navigate, userId]);
-
-  const logout = () => {
-    window.localStorage.clear();
-    setUser([]);
-    toast.success("Sessão encerrada. Aguardamos seu retorno!");
-    navigate("/login");
-  };
+const DashBoardPage = ({}) => {
+  const { logout, userName, userModule } = useContext(UserContext);
 
   return (
     <Page>
       <nav>
-        <Logo/>
-        <Button className="headerBttn" onClick={logout} innerText="Sair" />
+        <Logo />
+        <Button className="darkBttn" onClick={logout} innerText="Sair" />
       </nav>
       <SectionSpacer />
       <header className="userInfo">
@@ -52,10 +22,7 @@ const DashBoardPage = ({ user, setUser }) => {
         <h4>{userModule}</h4>
       </header>
       <SectionSpacer />
-      <main className="provisorySection">
-        <h2>Que pena! Estamos em desenvolvimento :(</h2>
-        <h3>Nossa aplicação está em desenvolvimento, em breve teremos novidades</h3>
-      </main>
+      <TechSection />
     </Page>
   );
 };

@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
@@ -7,19 +6,19 @@ export const StyledButton = styled.button`
   padding: 10px 20px;
   font-size: 14px;
   line-height: 17px;
+  font-family: 'Inter',sans-serif;
 
-  &.headerBttn {
+  &.darkBttn {
   color: var(--grey0);
   border: none;
   height: 40px; 
   padding: 0px 13.25px;
   background: var(--grey3);
-  width: 80px;
   font-weight: 600;
   letter-spacing: 0.2px;
   }
 
-  &.headerBttn:hover {
+  &.darkBttn:hover {
     background: var(--grey1);
   }
 
@@ -31,7 +30,7 @@ export const StyledButton = styled.button`
     font-weight: 500;
     font-size: 15px;
     letter-spacing: 0.35px;
-    background: var(--grey);
+    background: var(--grey1);
     border: 1.2182px solid var(--grey1);
     color: var(--grey0);
   }
@@ -58,7 +57,6 @@ export const StyledButton = styled.button`
     border: 1.2px solid var(--primaryNegative);
     cursor: default;
   }
-  
 
   &.primaryBttn:hover {
     background-color: var(--primaryFocus);
@@ -67,6 +65,16 @@ export const StyledButton = styled.button`
   &.primaryBttn[disabled]:hover {
     background-color: var(--primaryNegative);
     border: 1.2px solid var(--primaryNegative);
+  }
+  
+  &.addBttn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: 25px;
+    max-width: 40px;
+    max-height: 40px;
   }
 
   &.loading{

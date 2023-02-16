@@ -1,13 +1,17 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import React from "react";
+import React, { useContext } from "react";
 
 import { StyledForm } from "./style";
 import InputDiv from "../../components/InputDiv";
 import { schema } from "./validation.js";
 import Button from "../Button";
+import { UserContext } from "../../contexts/userContext";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-const RegisterForm = ( { className, onSubmit } ) => {
+const RegisterForm = ({ className }) => {
+  const { userRegister, loading } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -15,7 +19,7 @@ const RegisterForm = ( { className, onSubmit } ) => {
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
 
   return (
-    <StyledForm className={className} onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm className={className} onSubmit={handleSubmit(userRegister)}>
       <InputDiv
         labelText="Nome"
         name="name"
@@ -71,7 +75,10 @@ const RegisterForm = ( { className, onSubmit } ) => {
           <option value="Quarto módulo (Introdução ao Backend)">Quarto módulo</option>
         </select>
       </div>
-      <Button disabled={!isDirty || !isValid} innerText="Cadastrar" className="primaryBttn registerBttn" />
+      {!loading 
+        ? ( <Button disabled={ !isDirty || !isValid } innerText="Cadastrar" className="primaryBttn registerBttn" /> ) 
+        : ( <Button className="primaryBttn loading" innerText={ <AiOutlineLoading3Quarters className="loading" /> } /> )
+      }
     </StyledForm>
   );
 };
