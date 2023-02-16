@@ -11,6 +11,9 @@ export const modalStyle = {
         justifyContent: "center",
         alignItems: "center",
     },
+    control: {
+        borderColor: 'none',
+    },
     content: {
         position: "relative",
         top: "0px",
@@ -25,9 +28,6 @@ export const modalStyle = {
         height: "357px",
         padding: "0",
         borderRadius: "3.2px",
-    },
-    control: {
-        borderColor: 'none',
     },
 }
 
