@@ -6,6 +6,7 @@ import SectionSpacer from "../../components/SectionSpacer";
 import Logo from "../../components/Logo";
 import TechSection from "../../components/TechsSection";
 import { UserContext } from "../../contexts/UserContext";
+import { TechProvider } from "../../contexts/TechContext";
 
 const DashBoardPage = ({}) => {
   const { logout, userName, userModule } = useContext(UserContext);
@@ -22,7 +23,9 @@ const DashBoardPage = ({}) => {
         <h4>{userModule}</h4>
       </header>
       <SectionSpacer />
-      <TechSection />
+      <TechProvider>
+        <TechSection />
+      </TechProvider>
     </Page>
   );
 };
