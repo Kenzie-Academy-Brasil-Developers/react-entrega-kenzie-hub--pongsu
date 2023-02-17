@@ -62,7 +62,7 @@ const TechCreateForm = () => {
         />
         <p>{errors.status?.message}</p>
         {!loading 
-        ? ( <Button className="primaryBttn" innerText="Cadastrar Tecnologia" /> ) 
+        ? ( <Button type="submit" className="primaryBttn" innerText="Cadastrar Tecnologia" /> ) 
         : ( <Button className="primaryBttn loading" innerText={ <AiOutlineLoading3Quarters className="loading" /> } /> )
         }        
       </form>

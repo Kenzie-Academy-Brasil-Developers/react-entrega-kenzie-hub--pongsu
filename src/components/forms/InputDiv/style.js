@@ -31,6 +31,12 @@ export const StyledInputDiv = styled.div`
       border-radius: 4px;
       color: var(--grey0);
       width: 100%;
+      font-family: 'Inter',sans-serif;
+      ::placeholder {
+        color: var(--grey1);
+        font-family: 'Inter',sans-serif;
+        font-size: 13px;
+      }
     }
 
     input:focus{
@@ -57,7 +63,8 @@ export const StyledInputDiv = styled.div`
       padding-left: 7px;
       display: flex;
       margin-top: -7px;
-      margin-bottom: 15px;
+      height: 15px;
+      margin-bottom: 5px;
       align-self: flex-start;
       width: 100%;
       font-size: 11px;

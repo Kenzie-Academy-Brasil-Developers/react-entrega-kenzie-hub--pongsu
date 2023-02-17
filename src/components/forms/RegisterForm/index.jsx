@@ -1,22 +1,62 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import React, { useContext } from "react";
+import Select from "react-select";
 
-import { StyledForm } from "./style";
+import { StyledForm, selectStyle } from "./style";
 import InputDiv from "../InputDiv";
-import { schema } from "./validation.js";
 import Button from "../../Button";
 import { UserContext } from "../../../contexts/UserContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
+const options = [
+  { value: "Primeiro módulo (Introdução ao Frontend)", label: "Primeiro módulo",},
+  { value: "Segundo módulo (Frontend intermédiario)", label: "Segundo módulo" },
+  { value: "Terceiro módulo (Frontend junior)", label: "Terceiro módulo" },
+  { value: "Quarto módulo (Introdução ao Backend)", label: "Quarto módulo" },
+];
+
 const RegisterForm = ({ className }) => {
   const { userRegister, loading } = useContext(UserContext);
+
+  const schema = yup.object({
+    name: yup.string().required("É preciso informar seu nome"),
+    email: yup
+      .string()
+      .required("É preciso informar seu email")
+      .email("E-mail inválido"),
+    password: yup
+      .string()
+      .required("É preciso cadastrar uma senha")
+      .matches(/[a-z]|[A-Z]/, "Deve conter ao menos 1 letra")
+      .matches(/(\d)/, "Deve conter ao menos 1 número")
+      .matches(/(\W|_)/, "Deve conter no mínimo 1 caracter especial")
+      .matches(/.{8,}/, "Deve conter no mínimo 8 caracteres"),
+    passwordConfirm: yup
+      .string()
+      .oneOf([yup.ref("password")], "As senhas devem coincidir")
+      .required("A confirmação da senha é obrigatória"),
+    bio: yup.string().required("A descrição é obrigatória"),
+    contact: yup.string().required("É preciso informar seu contato"),
+    course_module: yup.string().required("Modulo atual obrigatório"),
+  });
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
-  } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
+    setValue,
+    clearErrors,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(schema),
+  });
+
+  const handleChange = (selectedOption) => {
+    setValue("course_module", selectedOption.value);
+    clearErrors("course_module");
+  };
 
   return (
     <StyledForm className={className} onSubmit={handleSubmit(userRegister)}>
@@ -65,20 +105,22 @@ const RegisterForm = ({ className }) => {
         register={register}
       />
       <div>
-        <div>
-          <label className="selectLabel">Selecionar módulo</label>
-        </div>
-        <select className="select" {...register("course_module")}>
-          <option value="Primeiro módulo (Introdução ao Frontend)">Primeiro módulo</option>
-          <option value="Segundo módulo (Frontend intermédiario)">Segundo módulo</option>
-          <option value="Terceiro módulo (Frontend junior)">Terceiro módulo</option>
-          <option value="Quarto módulo (Introdução ao Backend)">Quarto módulo</option>
-        </select>
+        <label className="selectLabel">Selecionar módulo</label>
+        <Select
+          styles={selectStyle}
+          placeholder="Selecione..."
+          defaultValue="null"
+          onChange={handleChange}
+          options={options}
+          isSearchable={false}
+        />
+        <p>{errors.course_module?.message}</p> 
       </div>
-      {!loading 
-        ? ( <Button disabled={ !isDirty || !isValid } innerText="Cadastrar" className="primaryBttn registerBttn" /> ) 
-        : ( <Button className="primaryBttn loading" innerText={ <AiOutlineLoading3Quarters className="loading" /> } /> )
-      }
+      {!loading ? (
+        <Button type="submit" innerText="Cadastrar" className="primaryBttn registerBttn" />
+      ) : (
+        <Button className="primaryBttn loading" innerText={<AiOutlineLoading3Quarters className="loading" />} />
+      )}
     </StyledForm>
   );
 };

@@ -48,13 +48,13 @@ export const StyledTechCreateForm = styled.span`
       border-radius: 3.2px;
       color: var(--grey0);
       font-family: 'Inter',sans-serif;
-      font-size: 16px;
+      font-size: 14px;
       padding-left: 10px;
   }
   
   input::placeholder{
     font-family: 'Inter',sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--grey1);
   }
 
@@ -75,6 +75,7 @@ export const selectStyle = {
       ...baseStyles,
       color: 'var(--grey1)',
       marginTop: '-7px',
+      fontSize: '14px',
   }),
   dropdownIndicator: (baseStyles, state) => ({
       ...baseStyles,
@@ -84,6 +85,7 @@ export const selectStyle = {
       ...baseStyles,
       color: 'var(--grey0)',
       marginTop: '-7px',
+      fontSize: '14px',
   }),
   indicatorSeparator: (baseStyles, state) => ({
       ...baseStyles,

@@ -44,7 +44,7 @@ const TechEditForm = () => {
   };
 
   return (
-    <StyledTechEditForm>
+    <StyledTechEditForm onSubmit={handleSubmit(editTechFunction)}>
       <div className="modalHeader">
         <h3>Editar Tecnologia</h3>
         <button className="closeModalBttn" onClick={closeModal}>x</button>
@@ -65,7 +65,7 @@ const TechEditForm = () => {
         <p>{errors.status?.message}</p>
         <div className="editTechBttns">
         {!loading 
-          ? ( <Button onClick={handleSubmit(editTechFunction)} className="primaryBttn" innerText="Salvar alteração" /> ) 
+          ? ( <Button type="submit" className="primaryBttn" innerText="Salvar alteração" /> ) 
           : ( <Button className="primaryBttn loading" innerText={ <AiOutlineLoading3Quarters className="loading" /> } /> )
         }
           <ConfirmToast 

@@ -33,4 +33,8 @@ export const StyledForm = styled.form`
   select:focus{
     border: 1.2182px solid var(--grey0);
   }
+
+  button{
+    margin-top: 13px;
+  }
 `;
