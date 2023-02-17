@@ -29,8 +29,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body,html{
-    width: 100vw;
-    height: 100vh;
     background-color: var(--grey4);
     color: var(--grey0);
     font-family: 'Inter', sans-serif;
@@ -43,6 +41,7 @@ const GlobalStyle = createGlobalStyle`
   
   .container{
     width: 100vw;
+    max-width: 100%;
     padding: 0 5vw;
     display: flex;
     justify-content: center;
