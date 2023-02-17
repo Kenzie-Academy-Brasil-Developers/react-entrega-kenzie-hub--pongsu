@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "../../components/Button";
 import { Page } from "./style";
-import RegisterForm from "../../components/RegisterForm";
+import RegisterForm from "../../components/forms/RegisterForm";
 import Logo from "../../components/Logo";
 
 const RegisterPage = () => {

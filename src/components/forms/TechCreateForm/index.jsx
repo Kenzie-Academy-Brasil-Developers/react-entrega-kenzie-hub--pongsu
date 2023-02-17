@@ -5,10 +5,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "react-select";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-import Button from "../Button";
+import Button from "../../Button";
 import { StyledTechCreateForm, selectStyle } from "./style";
-import { TechContext } from "../../contexts/TechContext";
-import { UserContext } from "../../contexts/UserContext";
+import { TechContext } from "../../../contexts/TechContext";
+import { UserContext } from "../../../contexts/UserContext";
 
 const options = [
   { value: "Iniciante", label: "Iniciante" },

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import { Page } from "./style";
 import Logo from "../../components/Logo";
-import LoginForm from "../../components/LoginForm";
+import LoginForm from "../../components/forms/LoginForm";
 
 const LoginPage = ({ }) => {
   const navigate = useNavigate();

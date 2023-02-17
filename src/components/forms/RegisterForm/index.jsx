@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import React, { useContext } from "react";
 
 import { StyledForm } from "./style";
-import InputDiv from "../../components/InputDiv";
+import InputDiv from "../InputDiv";
 import { schema } from "./validation.js";
-import Button from "../Button";
-import { UserContext } from "../../contexts/UserContext";
+import Button from "../../Button";
+import { UserContext } from "../../../contexts/UserContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const RegisterForm = ({ className }) => {

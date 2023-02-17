@@ -6,10 +6,10 @@ import Select from "react-select";
 import { ConfirmToast } from "react-confirm-toast";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-import Button from "../Button";
+import Button from "../../Button";
 import { StyledTechEditForm, selectStyle } from "./style";
-import { TechContext } from "../../contexts/TechContext";
-import { UserContext } from "../../contexts/UserContext";
+import { TechContext } from "../../../contexts/TechContext";
+import { UserContext } from "../../../contexts/UserContext";
 
 const options = [
   { value: "Iniciante", label: "Iniciante" },

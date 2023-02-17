@@ -4,10 +4,10 @@ import React, { useContext } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 import { StyledForm } from "./style";
-import InputDiv from "../../components/InputDiv";
+import InputDiv from "../InputDiv";
 import { schema } from "./validation.js";
-import Button from "../Button";
-import { UserContext } from "../../contexts/UserContext";
+import Button from "../../Button";
+import { UserContext } from "../../../contexts/UserContext";
 
 const LoginForm = ({ className }) => {
   const { userLogin, loading } = useContext(UserContext);

@@ -3,8 +3,8 @@ import Modal from "react-modal";
 
 import { TechContext } from "../../contexts/TechContext";
 import { modalStyle, StyledTechsModal } from "./style";
-import TechCreateForm from "../TechCreateForm";
-import TechEditForm from "../TechEditForm";
+import TechCreateForm from "../forms/TechCreateForm";
+import TechEditForm from "../forms/TechEditForm";
 
 const TechsModal = () => {
   const { addingTech, editingTech, modalOpened, closeModal } =
